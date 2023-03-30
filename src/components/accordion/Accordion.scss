@@ -1,0 +1,65 @@
+@import "../../common/styles/mixins";
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  padding: 1.8rem 1.8rem .9rem;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  border-radius: 1rem;
+
+  @include transition(background-color, padding);
+
+  &:hover {
+    background-color: #ccc;
+    @include transition(background-color);
+  }
+}
+
+.accordion__title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.accordion__icon {
+  cursor: pointer;
+
+  &:after {
+    content: '\02795';
+    font-size: 1.3rem;
+    color: #777;
+    margin-left: .5rem;
+  }
+}
+
+.accordion__child {
+  padding: 0 1.5rem;
+  background-color: #fff;
+  height: 0;
+  overflow: hidden;
+  border-radius: 1rem;
+
+  @include transition(background-color, max-height, height);
+}
+
+.accordion_active {
+  padding: 1.8rem;
+
+  .accordion__child {
+    height: 100px;
+  }
+
+  .accordion__icon {
+    &:after {
+      content: "\2796";
+    }
+  }
+}
+
+.accordion__content {
+  top: 1.5rem;
+  position: relative;
+}
